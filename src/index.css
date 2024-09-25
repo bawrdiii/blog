@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply bg-slate-800 text-slate-300 text-xl min-h-screen;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+#root {
+  @apply min-h-full;
+}
+.post {
+  @apply flex flex-col bg-slate-600 rounded-md 
+  px-3 pt-3 pb-5 w-11/12 min-h-56 transition-opacity duration-200 hover:cursor-pointer relative;
+}
+.loading-container {
+  @apply flex justify-center items-center h-full;
+}
+.posts-container {
+  @apply grid grid-cols-3 w-10/12 m-auto gap-3;
+}
+.post-container {
+  @apply w-2/6 mx-auto bg-slate-700 p-5 rounded-lg transition-shadow duration-200 shadow-md shadow-white my-5;
+}
+.comment {
+  @apply rounded-lg border p-2 my-2 overflow-hidden relative z-10;
+  transition: box-shadow 0.5s ease, color 0.9s linear;
+}
+.comment:hover {
+  box-shadow: 0 0 10px 2px #bbd0ff;
+  @apply text-blue-600;
+}
+.comment::before {
+  content: "";
+  @apply absolute inline-block bg-slate-200 h-full -left-14 top-0;
+  width: 0;
+  transition: width 1s linear;
+  transform: skew(35deg);
+  z-index: -1;
+}
+.comment:hover::before {
+  width: 150%;
+}
+.btn {
+  @apply overflow-hidden border py-1 px-5 m-2 transition-colors relative;
+}
+.btn::before {
+  content: "";
+  @apply w-1/2 absolute right-1/2 inline-block bg-red-500 h-full top-0 -z-10;
+}
+.btn::after {
+  content: "";
+  @apply w-1/2 absolute left-1/2 inline-block bg-red-500 h-full top-0 -z-10;
+}
