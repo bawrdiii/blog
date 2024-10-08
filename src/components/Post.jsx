@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Hourglass } from "react-loader-spinner";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import API from "../request/API";
 import Mapper from "./Mapper";
+import BackButton from "./BackButton";
 
 export default function Post() {
   const [data, setData] = useState(true);
   const [postData, setPostData] = useState();
   const [commentData, setCommentData] = useState([]);
   const { id } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     retrieveData();
@@ -25,15 +25,9 @@ export default function Post() {
     setCommentData(commentData);
   };
 
-  const goBack = () => {
-    navigate(-1);
-  };
-
   return (
     <>
-      <button onClick={goBack} className="btn">
-        Zurück
-      </button>
+      <BackButton />
       {data ? (
         <section className="loading-container">
           <Hourglass
