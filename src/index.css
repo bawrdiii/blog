@@ -52,15 +52,28 @@ code {
   width: 150%;
 }
 .btn {
-  @apply overflow-hidden border py-1 px-5 m-2 transition-colors relative;
+  @apply overflow-hidden border py-1 px-5 m-2 relative z-10;
 }
+
 .btn::before {
   content: "";
-  @apply w-1/2 absolute right-1/2 inline-block bg-red-500 h-full top-0 -z-10;
+  @apply w-1/2 absolute -left-5 inline-block h-0 bg-indigo-600 top-0 -z-10;
+  transform: skew(35deg) scale(1.3);
+  transform-origin: top;
+  transition: height 0.8s ease;
 }
+
 .btn::after {
   content: "";
-  @apply w-1/2 absolute left-1/2 inline-block bg-red-500 h-full top-0 -z-10;
+  @apply w-1/2 absolute inline-block bg-indigo-600 h-0 bottom-0 -right-5 -z-10;
+  transform: skew(35deg) scale(1.3);
+  transform-origin: bottom;
+  transition: height 0.8s ease;
+}
+
+.btn:hover::before,
+.btn:hover::after {
+  height: 100%;
 }
 
 .delete-icon {
