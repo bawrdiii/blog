@@ -10,8 +10,6 @@ export default function Mapper({ data, isForPost, deletePost }) {
     navigate(`/post/${id}`);
   };
 
-  //! TODO .Map umschreiben
-
   return (
     <>
       {data.length > 0 ? (
